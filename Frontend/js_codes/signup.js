@@ -1,6 +1,6 @@
 
 
-const base_url ="http://127.0.0.1:5000";
+const base_url ="https://messenger-app-21y2.onrender.com";
 const email_domains = ["@email.com", "@gmail.com", "@outlook.com"]
 
 function validate_email(user_email) {
@@ -60,4 +60,5 @@ document.querySelector("#signup-btn")
 // document.querySelector("#form").addEventListener("submit", function (event) {
 //     event.preventDefault(); // stops the form from submitting/reloading
 // });
+
 
