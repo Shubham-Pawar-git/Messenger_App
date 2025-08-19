@@ -14,6 +14,7 @@ CORS(app)
 @app.route("/signup", methods=["POST"])
 def signup_page():
     res = request.get_json()  # safer
+    connection=None
     if not res:
         return {"error": "No JSON data provided"}, 400
     
@@ -162,3 +163,4 @@ def get_searched_user():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
