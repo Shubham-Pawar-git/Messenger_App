@@ -1,6 +1,6 @@
 
 window.stop();
-const base_url = "http://127.0.0.1:5000";
+const base_url = "https://messenger-app-21y2.onrender.com";
 if (localStorage.getItem("isLoggedIn") === "true") {
     fetch_users();
     // console.log("fetch_users called");
@@ -371,4 +371,5 @@ addEventListener("click",(event)=>{
     let receiver_id=localStorage.getItem("receiver_id");
     load_messages(receiver_id);
 });
+
 
