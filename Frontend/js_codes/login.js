@@ -1,5 +1,5 @@
 
-const base_url ="http://127.0.0.1:5000";
+const base_url ="https://messenger-app-21y2.onrender.com";
 window.stop();
 document.querySelector("#form").addEventListener("submit", async (event) => {
     event.preventDefault(); // ✅ Stop reload immediately
@@ -51,3 +51,4 @@ document.querySelector("#form").addEventListener("submit", async (event) => {
         }
     }
 });
+
