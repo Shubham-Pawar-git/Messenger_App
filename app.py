@@ -1,7 +1,7 @@
 from flask import Flask,request,jsonify,send_file
 from flask_cors import CORS
-from Backend.storage import *
-from Backend.dbconnection import *
+from db.storage import *
+from db.dbconnection import *
 from dotenv import load_dotenv
 
 load_dotenv()  
@@ -157,6 +157,7 @@ def get_searched_user():
             return jsonify({"status":"failed"}),200
     except Exception as e:
         return jsonify({"Error":{str(e)}}),404
+
 
 
 
