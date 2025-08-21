@@ -1,6 +1,6 @@
 
 window.stop();
-const base_url = "https://messenger-app-21y2.onrender.com";
+const base_url = "http://127.0.0.1:5000";
 if (localStorage.getItem("isLoggedIn") === "true") {
     fetch_users();
     // console.log("fetch_users called");
@@ -8,6 +8,8 @@ if (localStorage.getItem("isLoggedIn") === "true") {
     alert("log in required");
     window.location.href = "login.html";
 }
+
+let lastFocused = null;
 
 
 function generateProfilePic(letter, bgColor = "#673AB7", textColor = "#fff") {
@@ -218,7 +220,8 @@ async function search_user(user_name) {
 
 document.querySelector("#send-btn")
     .addEventListener("click", async (event) => {
-        let message_text = document.querySelector("#message_input").value;
+        let message_input=document.querySelector("#message_input");
+        let message_text = message_input.value;
         let sender_id = localStorage.getItem("sender_id");
         let receiver_id = localStorage.getItem("receiver_id");
         if (message_text != "") {
@@ -247,7 +250,7 @@ document.querySelector("#send-btn")
                         message_div.style.textAlign = "right";
                         message_div.classList.add("message_div", "sender");
                         chat_box.append(message_div);
-                        document.querySelector("#message_input").placeholder = "Type Here...";
+                        message_input.value="";
                     }
                     else {
                         console.log("message not sent");
@@ -366,10 +369,16 @@ profile.addEventListener("mouseout", () => {
     }, 1000); // hide after 1s
 });
 
-document.querySelector("#receive-btn").
-addEventListener("click",(event)=>{
+// document.querySelector("#receive-btn").
+// addEventListener("click",(event)=>{
+//     let receiver_id=localStorage.getItem("receiver_id");
+//     load_messages(receiver_id);
+// });
+
+setInterval(()=>{
     let receiver_id=localStorage.getItem("receiver_id");
     load_messages(receiver_id);
-});
+},7000);
+
 
 
